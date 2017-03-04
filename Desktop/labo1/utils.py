@@ -9,6 +9,13 @@ def fact(n):
     Post: Returns the factorial of 'n'.
     Throws: ValueError if n < 0
     """
+    p = 0
+    z = 1
+    while p < n:
+        z *= n - p
+        p += 1
+    return z
+   
 
 def roots(a, b, c):
     """Computes the roots of the ax^2 + bx + x = 0 polynomial.
@@ -17,7 +24,17 @@ def roots(a, b, c):
     Post: Returns a tuple with zero, one or two elements corresponding
           to the roots of the ax^2 + bx + c polynomial.
     """
-    pass
+    d = b ** 2 - 4 * a * c
+    if d > 0:
+        root1 = (-b + d ** 0.5) / (2 * a)
+        root2 = (-b - d ** 0.5) / (2 * a)
+        return (root1, root2)
+    elif d == 0:
+        root = -b / (2 * a)
+        return (root)
+    else:
+        return ()
+
 
 def integrate(function, lower, upper):
     """Approximates the integral of a fonction between two bounds
